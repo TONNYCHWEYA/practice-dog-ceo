@@ -22,10 +22,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const breeds =Object.keys(data.message)
    
     breeds.forEach((breed) => {
+      const select =document.getElementById("breed-dropdown")
+      const selectValue = select.value
+   select.addEventListener("change", (event) => {
+    if(breed.charAt(0) === select.value){
       const li = document.createElement("li")
       li.textContent = breed
+      li.addEventListener("click", (event) => {
+        li.style.color = "red"
+      })
       ul.appendChild(li)
+    }
+
+   })
+      
+     
     })
+
+  
   })
 
 })
+
+
+
